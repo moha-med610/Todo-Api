@@ -71,6 +71,7 @@ const signIn = asyncHandler(async (req, res, next) => {
     const cookieOption = {
         httpOnly: true,
         secure: true,
+        sameSite: "None",
     }
 
     res.cookie("token", token, cookieOption).status(200).json({
