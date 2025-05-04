@@ -19,21 +19,11 @@ const todoRouter = require("./routes/todo.routes")
 // app
 const app = express();
 
-const allowedOrigins = [
-    process.env.CLIENT_URL,
-    process.env.CLIENT_LOCAL_URL,
-    process.env.OPEN_ANY_DEVICE
-];
+
 
 
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin) ) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
+    origin: process.env.CORS
     credentials: true,
 }));
 app.use(express.json());
