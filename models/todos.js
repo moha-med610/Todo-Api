@@ -9,7 +9,7 @@ const todoSchema = mongoose.Schema({
     description: {
         type: String,
         required: true,
-        minlength: 8,
+        minlength: 3,
     },
     completed: {
         type: Boolean,
