@@ -4,7 +4,6 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 require("dotenv").config();
 const helmet = require("helmet");
-const rateLimit = require("express-rate-limit");
 
 // Start server
 const server = require("./config/server")
@@ -23,12 +22,9 @@ const app = express();
 const allowedOrigins = [
     process.env.CLIENT_URL,
     process.env.CLIENT_LOCAL_URL,
+    process.env.OPEN_ANY_DEVICE
 ];
 
-const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 100,
-});
 
 app.use(cors({
     origin: function (origin, callback) {
