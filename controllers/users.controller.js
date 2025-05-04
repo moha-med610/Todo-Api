@@ -69,7 +69,7 @@ const signIn = asyncHandler(async (req, res, next) => {
     });
 
     const cookieOption = {
-        httpOnly: false,
+        httpOnly: true,
         secure: true,
         sameSite: "None",
     }
